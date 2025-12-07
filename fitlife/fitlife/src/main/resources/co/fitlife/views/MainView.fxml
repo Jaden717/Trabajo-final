@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.*?> <TabPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.fitlife.controllers.MainController" prefHeight="600.0" prefWidth="850.0">
+    <tabs>
+
+        <Tab text="Gestión de Socios" closable="false">
+            <VBox spacing="15" alignment="TOP_CENTER">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                <Label text="Registro de Socios Nuevos (RF01)" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <TextField fx:id="txtCedula" promptText="Cédula / DNI" prefWidth="200"/>
+                    <TextField fx:id="txtNombre" promptText="Nombre Completo" prefWidth="300"/>
+                    <Button text="Registrar Socio" onAction="#handleRegistrarSocio"/>
+                </HBox>
+
+                <Separator/>
+
+                <Label text="Listado de Socios y Estado de Membresía"/>
+                <TableView fx:id="tablaSocios" VBox.vgrow="ALWAYS">
+                    <columns>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Renovar Membresía Seleccionada (30 días)" onAction="#handleRenovar"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+
+        <Tab text="Clases Grupales y Reservas" closable="false">
+            <VBox spacing="15">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+                <Label text="Programar Nueva Clase (RF02)" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="txtClaseNombre" promptText="Nombre de la Clase" prefWidth="180"/>
+                    <DatePicker fx:id="dateClase" promptText="Fecha"/>
+                    <TextField fx:id="txtClaseHora" promptText="Hora (HH:MM)" prefWidth="80"/>
+                    <TextField fx:id="txtClaseCupo" promptText="Cupo Máx" prefWidth="80"/>
+                    <Button text="Crear Clase" onAction="#handleCrearClase"/>
+                </HBox>
+
+                <Separator/>
+
+                <Label text="Reservar Cupo (RF04)"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="comboSocios" promptText="Seleccionar Socio"/>
+                    <Button text="Reservar Cupo en Clase Seleccionada" onAction="#handleReservar"/>
+                </HBox>
+
+                <Label text="Clases Programadas y Aforo"/>
+                <TableView fx:id="tablaClases" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+    </tabs>
+</TabPane>

@@ -1,0 +1,10 @@
+co\fitlife\app\App.class
+co\fitlife\model\ClaseGrupal.class
+co\fitlife\persistence\GestorArchivos.class
+module-info.class
+org\example\fitlifepro\Launcher.class
+org\example\fitlifepro\HelloApplication.class
+org\example\fitlifepro\HelloController.class
+co\fitlife\services\GimnasioService.class
+co\fitlife\model\Socio.class
+co\fitlife\controllers\MainController.class
